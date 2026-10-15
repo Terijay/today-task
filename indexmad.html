@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa — Creative Digital Agency</title>
+
+<style>
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080d1b;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+/* NAVIGATION */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 13, 27, 0.92);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #ffffff12;
+}
+
+.navbar {
+  min-height: 78px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #8b5cf6;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #b9c1d4;
+  transition: color .3s;
+}
+
+.nav-links a:hover {
+  color: #a78bfa;
+}
+
+.nav-button {
+  background: #8b5cf6;
+  color: white !important;
+  padding: 11px 20px;
+  border-radius: 9px;
+}
+
+/* HERO */
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 80% 40%, #6d28d933, transparent 40%),
+    radial-gradient(ellipse at 10% 90%, #0ea5e922, transparent 35%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 45px;
+  align-items: center;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.badge {
+  display: inline-block;
+  color: #c4b5fd;
+  background: #8b5cf61c;
+  border: 1px solid #8b5cf644;
+  border-radius: 50px;
+  padding: 8px 15px;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 5.5vw, 70px);
+  line-height: 1.12;
+  letter-spacing: -2.5px;
+  margin-bottom: 24px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #a78bfa, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 520px;
+  font-size: 17px;
+  color: #aab5cc;
+  margin-bottom: 32px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 23px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .25s, background .25s;
+  border: 1px solid transparent;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  color: white;
+  background: linear-gradient(110deg, #7c3aed, #6366f1);
+  box-shadow: 0 8px 30px #7c3aed35;
+}
+
+.btn-secondary {
+  border-color: #ffffff25;
+  background: #ffffff08;
+  color: white;
+}
+
+/* HERO ART */
+.artwork {
+  min-height: 390px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.orbit {
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  border: 1px solid #a78bfa40;
+  border-radius: 50%;
+  animation: rotate 22s linear infinite;
+}
+
+.orbit::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 25px;
+  width: 16px;
+  height: 16px;
+  background: #38bdf8;
+  border-radius: 50%;
+  box-shadow: 0 0 25px #38bdf8;
+}
+
+.orbit-two {
+  width: 235px;
+  height: 235px;
+  border-color: #38bdf830;
+  animation-direction: reverse;
+}
+
+.orbit-two::before {
+  background: #a78bfa;
+  box-shadow: 0 0 25px #a78bfa;
+}
+
+.core {
+  width: 165px;
+  height: 165px;
+  display: grid;
+  place-items: center;
+  border-radius: 38px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  box-shadow: 0 0 100px #7c3aed55;
+  font-size: 65px;
+  transform: rotate(-8deg);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  50% { translate: 0 -12px; }
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 30px 0;
+  border-top: 1px solid #ffffff12;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h2 {
+  font-size: 32px;
+  color: #a78bfa;
+}
+
+.stat p {
+  color: #9ba7be;
+  font-size: 14px;
+}
+
+/* SECTIONS */
+section.content {
+  padding: 100px 0;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #a78bfa;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.section-heading h2 {
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.2;
+  margin: 14px 0;
+}
+
+.section-heading p {
+  color: #aab5cc;
+}
+
+/* SERVICE CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  padding: 30px;
+  border: 1px solid #ffffff14;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #141c31, #0d1425);
+  transition: transform .3s, border-color .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: #8b5cf688;
+}
+
+.icon {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  background: #8b5cf61c;
+  border-radius: 14px;
+  font-size: 25px;
+  margin-bottom: 24px;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 21px;
+}
+
+.card p {
+  color: #aab5cc;
+  font-size: 15px;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 65px 25px;
+  border: 1px solid #8b5cf644;
+  border-radius: 25px;
+  background:
+    radial-gradient(ellipse at top, #7c3aed35, transparent 65%),
+    #10172a;
+}
+
+.cta h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  margin: 15px 0;
+}
+
+.cta p {
+  color: #aab5cc;
+  margin-bottom: 25px;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 90px;
+  border-top: 1px solid #ffffff12;
+  padding: 28px 0;
+  color: #8c98af;
+  font-size: 14px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .artwork {
+    min-height: 340px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-button {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 0;
+  }
+
+  .nav-links {
+    gap: 15px;
+    font-size: 13px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1.5px;
+  }
+
+  .orbit {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orbit-two {
+    width: 200px;
+    height: 200px;
+  }
+
+  .core {
+    width: 130px;
+    height: 130px;
+    font-size: 50px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stat h2 {
+    font-size: 25px;
+  }
+
+  .stat p {
+    font-size: 12px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a class="logo" href="#home">nexa<span>.</span></a>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a class="nav-button" href="#contact">Let's Talk ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">✦ YOUR DIGITAL FUTURE STARTS HERE</span>
+
+        <h1>
+          We Build Digital
+          <span class="gradient-text">Experiences.</span>
+        </h1>
+
+        <p>
+          Transform your vision into reality with creative design,
+          powerful technology, and digital solutions built to grow
+          your business.
+        </p>
+
+        <div class="actions">
+          <a href="#services" class="btn btn-primary">Explore Services ↗</a>
+          <a href="#about" class="btn btn-secondary">Discover More</a>
+        </div>
+      </div>
+
+      <div class="artwork" aria-label="Animated digital artwork">
+        <div class="orbit"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="core">✦</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container stats" id="about">
+    <div class="stat">
+      <h2>100%</h2>
+      <p>Creative Thinking</p>
+    </div>
+    <div class="stat">
+      <h2>24/7</h2>
+      <p>Digital Presence</p>
+    </div>
+    <div class="stat">
+      <h2>∞</h2>
+      <p>Possibilities</p>
+    </div>
+  </div>
+
+  <section class="content" id="services">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">What We Do</span>
+        <h2>Solutions That Move You Forward</h2>
+        <p>
+          Everything you need to build your online presence
+          and turn your ideas into something extraordinary.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">✧</div>
+          <h3>Web Design</h3>
+          <p>
+            Stunning, intuitive designs that make your brand
+            stand out and keep visitors engaged.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">⌘</div>
+          <h3>Development</h3>
+          <p>
+            Fast, responsive websites designed to work beautifully
+            across mobile, tablet, and desktop.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">↗</div>
+          <h3>Digital Growth</h3>
+          <p>
+            Improve your online visibility and build a stronger
+            digital presence for your business.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="contact">
+    <div class="cta">
+      <span class="eyebrow">HAVE AN IDEA?</span>
+      <h2>Let's Create Something Amazing.</h2>
+      <p>Your next big idea deserves a great digital experience.</p>
+      <button class="btn btn-primary" id="contactBtn">
+        Start a Conversation ↗
+      </button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="logo" href="#home">nexa<span>.</span></a>
+    <p>© <span id="year"></span> Nexa Studio. All rights reserved.</p>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+  // Automatically update the copyright year
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  // Smoothly navigate to the services section
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener("click", function(event) {
+      const target = document.querySelector(
+        this.getAttribute("href")
+      );
+
+      if (target) {
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  // Contact button interaction
+  document.getElementById("contactBtn").addEventListener("click", function() {
+    alert("Thanks for your interest! Add your email address or contact form here.");
+  });
+</script>
+
+</body>
+</html>
